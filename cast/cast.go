@@ -3,7 +3,7 @@ package cast
 import (
 	"reflect"
 
-	"github.com/sidgwick/gutil/json"
+	gjson "github.com/sidgwick/gutil/json"
 	"github.com/spf13/cast"
 )
 
@@ -33,6 +33,6 @@ func ToXStringMapE(i interface{}) (map[string]interface{}, error) {
 		return m, nil
 	}
 
-	err := json.LoadData(&m, i)
+	err := gjson.LoadData(&m, i)
 	return m, err
 }

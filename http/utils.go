@@ -3,14 +3,14 @@ package http
 import (
 	"net/url"
 
-	cast2 "github.com/sidgwick/gutil/cast"
+	gcast "github.com/sidgwick/gutil/cast"
 	"github.com/spf13/cast"
 )
 
 func BuildGetQueryString(input interface{}) string {
 	data := url.Values{}
 
-	xInput := cast2.ToXStringMap(input)
+	xInput := gcast.ToXStringMap(input)
 	for k, v := range xInput {
 		data.Set(k, cast.ToString(v))
 	}

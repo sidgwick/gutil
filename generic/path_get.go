@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/sidgwick/gutil/json"
+	gjson "github.com/sidgwick/gutil/json"
 	"github.com/spf13/cast"
 )
 
@@ -75,7 +75,7 @@ func _getValueByKeyName(data interface{}, key string) (interface{}, error) {
 	}
 
 	if isJsonStr {
-		err := json.LoadData(&data, dataValue.Interface())
+		err := gjson.LoadData(&data, dataValue.Interface())
 		if err != nil {
 			return nil, err
 		}

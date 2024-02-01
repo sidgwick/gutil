@@ -8,7 +8,7 @@ import (
 	"net/http/httputil"
 	"time"
 
-	"github.com/sidgwick/gutil/json"
+	gjson "github.com/sidgwick/gutil/json"
 	"github.com/sidgwick/gutil/logger"
 )
 
@@ -97,7 +97,7 @@ func (c *Client) Post(ctx context.Context, url string, _req *Request, ops ...Get
 		op(&options)
 	}
 
-	dataStr := json.Json(_req.Data)
+	dataStr := gjson.Json(_req.Data)
 	req, err := http.NewRequest("POST", url, bytes.NewBufferString(dataStr))
 	if err != nil {
 		return nil, err
