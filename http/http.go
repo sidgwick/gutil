@@ -1,4 +1,4 @@
-package ghttp
+package http
 
 import (
 	"bytes"
@@ -7,6 +7,9 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"time"
+
+	"github.com/sidgwick/gutil/json"
+	"github.com/sidgwick/gutil/logger"
 )
 
 const (
@@ -94,7 +97,7 @@ func (c *Client) Post(ctx context.Context, url string, _req *Request, ops ...Get
 		op(&options)
 	}
 
-	dataStr := Json(_req.Data)
+	dataStr := json.Json(_req.Data)
 	req, err := http.NewRequest("POST", url, bytes.NewBufferString(dataStr))
 	if err != nil {
 		return nil, err

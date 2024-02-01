@@ -1,4 +1,4 @@
-module github.com/sidgwick/ghttp
+module github.com/sidgwick/gutil
 
 go 1.18
 

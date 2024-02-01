@@ -1,2 +1,2 @@
-# Golang HTTP wrapper
+# Golang util set
 

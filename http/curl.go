@@ -1,4 +1,4 @@
-package ghttp
+package http
 
 import (
 	"context"
@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/sidgwick/gutil/json"
 	"github.com/spf13/cast"
 )
 
@@ -69,7 +70,7 @@ func (c *Curl) Post(ctx context.Context, req *Request, ops ...GetOption) (string
 func (c *Curl) GetJson(ctx context.Context, req *Request, resp interface{}, ops ...GetOption) error {
 	respBody, err := c.Get(ctx, req, ops...)
 
-	err = LoadData(resp, respBody)
+	err = json.LoadData(resp, respBody)
 	if err != nil {
 		return err
 	}
@@ -80,7 +81,7 @@ func (c *Curl) GetJson(ctx context.Context, req *Request, resp interface{}, ops 
 func (c *Curl) PostJson(ctx context.Context, req *Request, resp interface{}, ops ...GetOption) error {
 	respBody, err := c.Post(ctx, req, ops...)
 
-	err = LoadData(resp, respBody)
+	err = json.LoadData(resp, respBody)
 	if err != nil {
 		return err
 	}
