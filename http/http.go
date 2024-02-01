@@ -78,7 +78,7 @@ func (c *Client) Get(ctx context.Context, url string, _req *Request, ops ...GetO
 	}
 
 	reqStr, _ := httputil.DumpRequest(req, true)
-	logger.Tracef("http POST request:\n%v\n\nresponse:\n%v", string(reqStr), string(respStr))
+	logger.Tracef(ctx, "http POST request:\n%v\n\nresponse:\n%v", string(reqStr), string(respStr))
 
 	if err != nil {
 		return nil, err
@@ -114,7 +114,7 @@ func (c *Client) Post(ctx context.Context, url string, _req *Request, ops ...Get
 	}
 
 	reqStr, _ := httputil.DumpRequest(req, true)
-	logger.Tracef("http POST request:\n%v\n\nresponse:\n%v", string(reqStr), string(respStr))
+	logger.Tracef(ctx, "http POST request:\n%v\n\nresponse:\n%v", string(reqStr), string(respStr))
 
 	if err != nil {
 		return nil, err
